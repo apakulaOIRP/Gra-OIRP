@@ -1,0 +1,174 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2113.5">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; color: #000000; -webkit-text-stroke: #000000}
+    span.s1 {font-kerning: none}
+    span.s2 {font: 12.0px 'Apple Color Emoji'; font-kerning: none}
+  </style>
+</head>
+<body>
+<p class="p1"><span class="s1">&lt;!DOCTYPE html&gt;</span></p>
+<p class="p1"><span class="s1">&lt;html lang="pl"&gt;</span></p>
+<p class="p1"><span class="s1">&lt;head&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;meta charset="UTF-8"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;title&gt;Złap Prezenty z OIRP Wrocław&lt;/title&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;style&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>body {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>margin: 0;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>overflow: hidden;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>background-color: #eef2f3;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>font-family: Arial, sans-serif;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>canvas {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>display: block;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>background: #f5f5f5 url(tlo.jpg') no-repeat center;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>background-size: cover;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>h1 {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>text-align: center;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>color: #2c3e50;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>margin: 10px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/style&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/head&gt;</span></p>
+<p class="p1"><span class="s1">&lt;body&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;h1&gt;</span><span class="s2">🎁</span><span class="s1"> Złap Prezenty z OIRP Wrocław </span><span class="s2">🎄</span><span class="s1">&lt;/h1&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;canvas id="gameCanvas"&gt;&lt;/canvas&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;script&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const canvas = document.getElementById('gameCanvas');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const ctx = canvas.getContext('2d');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>canvas.width = window.innerWidth;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>canvas.height = window.innerHeight;</span></p>
+<p class="p1"><span class="s1"><br>
+</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>// Gracz</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const player = {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>x: canvas.width / 2,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>y: canvas.height - 80,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>width: 60,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>height: 60,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>dx: 0,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>speed: 8,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>};</span></p>
+<p class="p1"><span class="s1"><br>
+</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>// Prezenty</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const gifts = [];</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const giftImage = new Image();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>giftImage.src = 'https://i.imgur.com/4xhzR5V.png'; // Prezent</span></p>
+<p class="p1"><span class="s1"><br>
+</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>let score = 0;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>let missed = 0;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const missedMax = 5;</span></p>
+<p class="p1"><span class="s1"><br>
+</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>function spawnGift() {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>const gift = {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>x: Math.random() * (canvas.width - 40),</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>y: 0,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>width: 40,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>height: 40,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>speed: 2 + Math.random() * 3,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>};</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>gifts.push(gift);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p1"><span class="s1"><br>
+</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>function drawGifts() {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>for (let i = gifts.length - 1; i &gt;= 0; i--) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>const gift = gifts[i];</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>ctx.drawImage(giftImage, gift.x, gift.y, gift.width, gift.height);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>gift.y += gift.speed;</span></p>
+<p class="p1"><span class="s1"><br>
+</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>if (gift.y &gt; canvas.height) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>gifts.splice(i, 1);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>missed++;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p1"><span class="s1"><br>
+</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>if (</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>gift.x &lt; player.x + player.width &amp;&amp;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>gift.x + gift.width &gt; player.x &amp;&amp;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>gift.y &lt; player.y + player.height &amp;&amp;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>gift.y + gift.height &gt; player.y</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>score++;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>gifts.splice(i, 1);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p1"><span class="s1"><br>
+</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>function drawPlayer() {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>ctx.fillStyle = 'red';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>ctx.fillRect(player.x, player.y, player.width, player.height);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p1"><span class="s1"><br>
+</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>function drawScore() {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>ctx.font = '20px Arial';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>ctx.fillStyle = 'black';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>ctx.fillText(`Wynik: ${score}`, 10, 30);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>ctx.fillText(`Pominięte: ${missed} / ${missedMax}`, 10, 60);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p1"><span class="s1"><br>
+</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>function gameOver() {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>ctx.font = '40px Arial';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>ctx.fillStyle = 'red';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>ctx.fillText('KONIEC GRY! </span><span class="s2">🎮</span><span class="s1">', canvas.width / 2 - 120, canvas.height / 2);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>ctx.fillStyle = 'black';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>ctx.fillText(`Twój wynik: ${score}`, canvas.width / 2 - 90, canvas.height / 2 + 50);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>cancelAnimationFrame(animationId);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p1"><span class="s1"><br>
+</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>document.addEventListener('keydown', (e) =&gt; {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>if (e.key === 'ArrowRight') player.dx = player.speed;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>if (e.key === 'ArrowLeft') player.dx = -player.speed;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>});</span></p>
+<p class="p1"><span class="s1"><br>
+</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>document.addEventListener('keyup', () =&gt; (player.dx = 0));</span></p>
+<p class="p1"><span class="s1"><br>
+</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>function movePlayer() {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>player.x += player.dx;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>if (player.x &lt; 0) player.x = 0;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>if (player.x + player.width &gt; canvas.width) player.x = canvas.width - player.width;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p1"><span class="s1"><br>
+</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>let animationId;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>function gameLoop() {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>ctx.clearRect(0, 0, canvas.width, canvas.height);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>movePlayer();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>drawPlayer();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>drawGifts();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>drawScore();</span></p>
+<p class="p1"><span class="s1"><br>
+</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>if (missed &gt;= missedMax) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>gameOver();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>} else {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>animationId = requestAnimationFrame(gameLoop);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p1"><span class="s1"><br>
+</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>setInterval(spawnGift, 1000);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>gameLoop();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/script&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/body&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/html&gt;</span></p>
+</body>
+</html>
